@@ -2,47 +2,39 @@
 
 using namespace std;
 
-void bubblesort(int arr[],int n){
-
-for (int i = 0; i < n-1; i++)
+void bubbleSort(int arr[], int n)
 {
-    for (int j =0 ; j < n-i-1; i++)
-    {
-        if(arr[j+1]>arr[j])
-    {
-    swap(&a[j+1],&a[j])
-    }
+    int i, j;
+    for (i=0; i<n-1; i++)
 
-    }
+        // Last i elements are already
+        // in place
+        for (j=0; j <n-i-1; j++)
+            if (arr[j] >arr[j +1])
+                swap(arr[j], arr[j +1]);
 }
 
 
 
 
-
-
-
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i=0; i<size; i++)
+        cout<<arr[i] <<" ";
+    cout<<endl;
 }
-
-
-
 
 
 
 
 int main(){
 
-
-
-
-
-
-
-
-
-
-
-
+int arr[] = {50, 10, 4, 20, 8};
+    int N =sizeof(arr) /sizeof(arr[0]);
+    bubbleSort(arr, N);
+    cout<<"Sorted array: \n";
+    printArray(arr, N);
 
     return 0;
 }

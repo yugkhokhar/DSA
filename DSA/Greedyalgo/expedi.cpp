@@ -24,6 +24,11 @@ using namespace std;
 
 int main()
 {
+    int t;cin>>t;
+    while (t--)
+    {
+        
+    
     //no of stops
 int n;
 cin>>n;
@@ -48,7 +53,7 @@ cin>>l>>p;
 //and the stop distance from town
 for(int i=0;i<n;i++)
 {
- a[i].first=l-a[i].first;
+ v[i].first=l-v[i].first;
 }
 //sort the vector to find the min distance between truck and stop
 sort(v.begin(),v.end());
@@ -59,37 +64,42 @@ int cft=p;
 
 priority_queue<int,vector<int>>pq;
 bool flag=0;
-for(int i=0;i<n;i++)
-{
-    if(cft>l)
+
+    for(int i=0;i<n;i++)
     {
-        break;
+                if(cft>=l)
+                {
+                    break;
+                }
+
+                while(cft<v[i].first)
+                {
+
+                if(pq.empty())
+                {
+                    flag=1;
+                    break;
+                }
+                ans++;
+                cft+=pq.top();
+                pq.pop();
+                }
+
+                if(flag)
+                {
+                    break;
+                }
+                pq.push(v[i].second);
+
     }
 
-while(cft<v[i].first)
-{
-
-if(pq.empty())
-{
-    flag=1;
-    break;
-}
-ans++;
-cft+=pq.top();
-pq.pop();
-}
 
 if(flag)
 {
-    break;
-}
-pq.push(v[i].second);
-
-if(flag)
-{
-    cout<,"-1";
+    cout<"-1"<<" ";
     continue;
 }
+
 
 while(!pq.empty() && cft<l)
 {
@@ -105,11 +115,10 @@ if(cft<l)
 }
 cout<<ans<<endl;
 
+
+
+
 }
-
-
-
-
 
 
     return 0;

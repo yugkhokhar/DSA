@@ -2,28 +2,38 @@
 
 using namespace std;
 
-void insertion(int*a,int n)
+void insertionSort(int arr[], int n)
 {
+    int i, key, j;
+    for (i=1; i<n; i++)
+    {
+        key =arr[i];
+        j =i-1;
 
- for (int i = 1; i < n; i++)
- {
-     int j=i-1;
-     while (j>=0 && a[j]>a[i])
-     {
-        a[j+1]=a[j];
-     }
-     a[j+1]=a[i];
-     
- }
-    
+        while (j >=0&&arr[j] > key)
+        {
+            arr[j +1] = arr[j];
+            j = j -1;
+        }
+        arr[j +1] = key;
+    }
 }
-//O(n^2)
+
+void printArray(int arr[], int n)
+{
+    int i;
+    for (i=0; i<n; i++)
+        cout<<arr[i] <<" ";
+    cout<<endl;
+}
 
 int main()
 {
+    int arr[] = { 102, 110, 103, 15, 60 };
+    int N =sizeof(arr) /sizeof(arr[0]);
 
-int a[]={10,5,7,9,11,8,15};
-insertion(a,sizeof(a)/sizeof(a[0]));
+    insertionSort(arr, N);
+    printArray(arr, N);
 
-return 0;
+    return 0;
 }

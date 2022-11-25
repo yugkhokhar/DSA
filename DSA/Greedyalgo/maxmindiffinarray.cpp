@@ -20,8 +20,8 @@ int max=0;
 
 for(int i=0;i<n/2;i++)
 {
-    max+=a[n-i-1]-a[i];
-    min+=a[2*i+1]-a[2*i];
+         max+=a[n-i-1]-a[i];
+         min+=a[2*i+1]-a[2*i];
 }
 cout<<max<<" "<<min;
     return 0;

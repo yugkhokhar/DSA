@@ -3,7 +3,7 @@
 using namespace std;
 
 
-bool binarySearch(vector<int>v,int start,int end,int key)
+bool binarySearch(vector<int>&v,int start,int end,int key)
 {
 if(start<=end){
 
@@ -13,10 +13,10 @@ if(v[mid]==key){
     return true;
 }
 else if(v[mid]>key){
-binarySearch(v,start,mid-1,key);
+return binarySearch(v,start,mid-1,key);
 }
 else{
-binarySearch(v,mid+1,end,key);
+return binarySearch(v,mid+1,end,key);
 }
 
 }
@@ -27,7 +27,7 @@ return false;
 int main(){
 
 vector<int>v;
-int key=5000000;
+int key=50000;
 cout<<key<<endl;
 
 for(int i=0 ; i<1000000; i++)

@@ -5,28 +5,24 @@ using namespace std;
 int  main()
 {
 
-int n;
-cin>>n;
-vector<int>v1(n);
+int n;cin>>n;
+int number;cin>>number;
 
-for(int i=0;i<n;i++)
+vector<int>a(n);
+
+for (int i = 0; i < n; i++)
 {
-    cin>>v1[i];
+    cin>>a[i];
 }
 
 
-sort(v1.begin(),v1.end(),greater<int>());
-int k;
-cin>>k;
+sort(a.begin(),a.end(),greater<int>());
 int ans=0;
-for(int i=0;i<n;i++)
-{
-    ans+=k/v1[i];
-    k-=k/v1[i] *v1[i];
+for(int i=0;i<n;i++){
+ans+=number/a[i];
+number=number-(number/a[i])*a[i];
 }
-
-cout<<ans<<endl;
-
+cout<<ans;
 
 
 

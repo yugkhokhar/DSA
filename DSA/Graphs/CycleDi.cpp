@@ -14,26 +14,29 @@ using namespace std;
 
 bool iscycle(int src,vector<vector<int>>&adj,vector<bool>&visited,vector<int>&stack)
 {
-    stack[src]=true;
+            stack[src]=true;
 
-   if(!visited[src])
-   {
-    visited[src]=true;
-     for(auto it:adj[src])
-     {
-      if(!visited[it] and iscycle(it,adj,visited,stack))
-     {
-         return true;
-     }
-     if(stack[src])
-     {
-         return true;
-     }
-     }
+        if(!visited[src])
+        {
+            visited[src]=true;
+            for(auto it:adj[src])
+            {
+           
+            if(stack[IT])
+            {
+                return true;
+            }
 
-     }
+            if(!visited[it] and iscycle(it,adj,visited,stack))
+            {
+                return true;
+            }
+           
+            }
 
-   stack[src]=false;
+            }
+
+        stack[src]=false;
 
 return false;
 

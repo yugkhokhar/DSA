@@ -22,7 +22,7 @@ if(dp[n]!=maxN)
     return dp[n];
 }
 
-for(int i=1;i*i<=N;i++)
+for(int i=1;i<=sqrt(n);i++)
 {
   dp[n]=min(dp[n],1+minsquare(n-i*i));
 }
@@ -43,21 +43,24 @@ for(int i=0;i<N;i++)
 }
 
 //tabulation
-dp[n]=n;
 dp[0]=0;
 dp[1]=1;
 dp[2]=2;
 dp[3]=3;
-for(int j=1;j*j<=n;j++)
+
+for (int i = 2; i <=n; i++)
 {
-    dp[n]=min(dp[n],1+dp[n-j*j]);
+    for(int j=1;j<=sqrt(i);j++)
+    {
+        dp[i]=min(dp[i],1+dp[i-j*j]);
+    }
 }
 
 cout<<dp[n]<<endl;
-//tabulation ends
-
+ 
+ //tabulation ends
 
 cout<<minsquare(n)<<endl;
-
+ 
     return 0;
 }

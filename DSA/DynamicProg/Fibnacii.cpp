@@ -43,9 +43,6 @@ for(int i=0;i<N;i++)
 }
 
 //tabulation 
-
-
-
 int n;
 cin>>n;
 vector<int>dp1(n+1);
@@ -56,7 +53,7 @@ for(int i=3;i<=n;i++)
 {
   dp[i]=dp1[i-1]+dp1[n-2];
 }
-
+cout<<dp[n]<<endl;
 
 cout<<fib(n)<<endl;
  

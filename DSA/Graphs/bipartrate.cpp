@@ -6,11 +6,6 @@
 
 
 
-
-
-
-
-
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -33,7 +28,6 @@ for(auto it:adj[node])
 {
     color(it,curr xor 1);
 }
-
 
 }
 

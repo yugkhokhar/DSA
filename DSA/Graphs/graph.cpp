@@ -55,7 +55,7 @@ rep(i,1,n+1)
 {
     rep(j,1,m+1)
       cout<<adj[i][j]<<" ";
- cout<<endl;   
+    cout<<endl;   
 }
 
 //adjacency list

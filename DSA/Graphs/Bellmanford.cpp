@@ -30,9 +30,7 @@ int source;
 cin>>source;
 dis[source]=0;
 
-set<pair<int,int>>s;
-s.insert({0,source});
-//weight,vertex
+
 
 for(int i=0;i<n-1;i++)
 {

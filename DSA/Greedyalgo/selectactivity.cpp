@@ -3,13 +3,6 @@
 //of the first activity with the start time of next activity if the start 
 //of other is greater then the end of prev then we increase the take value 
 
-
-
-
-
-
-
-
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -35,7 +28,7 @@ int end=v[0][1];
 
 for(int i=1;i<n;i++)
 {
-    if(v[i][0]>end)
+    if(v[i][0]>=end)
     {
         take++;
         end=v[i][1];

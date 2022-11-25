@@ -1,59 +1,35 @@
-//in this we focus on include or exclude of a coin
-
-#include<bits/stdc++.h>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-int coinchange(vector<int>&coins,int amount)
+int coinchange(vector<int>& a, int v, int n,
+			vector<vector<int> >& dp)
 {
-    int n=coins.size();
-int dp[n+1][amount+1];
-const int inf=1e5;
-    for(int i=0;i<=n;i++)
-    {
-         for(int j=0;j<=n;j++)
-         {
-      if(j==0)
-      {
-          dp[i][j]=0;
-      }
-      else if(i==0)
-      {
-          dp[i][j]=inf;
-      }
-//exclude condition
-      else if(coins[i-1]>j)
-       {
-           dp[i][j]=dp[i-1][j];
-       }
-       //include condtion
-       else{
-dp[i][j]=min(1+dp[i][j-coins[i-1]],dp[i-1][j]);
-       }
-
-       return dp[n][amount]>1e4?-1:dp[n][amount];
-
-
-
-
-
-         }
-    }
-
+	if (v == 0)
+		return dp[n][v] = 1;
+	if (n == 0)
+		return 0;
+	if (dp[n][v] != -1)
+		return dp[n][v];
+	if (a[n - 1] <= v) {
+		// Either Pick this coin or not
+		return dp[n][v] = coinchange(a, v - a[n - 1], n, dp)
+						+ coinchange(a, v, n - 1, dp);
+	}
+	else // We have no option but to leave this coin
+		return dp[n][v] = coinchange(a, v, n - 1, dp);
 }
-
-
-
-
-
-int main()
+int32_t main()
 {
-
-    return 0;
+	int tc = 1;
+	// cin >> tc;
+	while (tc--) {
+		int n, v;
+		n = 3, v = 4;
+		vector<int> a = { 1, 2, 3 };
+		vector<vector<int> > dp(n + 1,
+								vector<int>(v + 1, -1));
+		int res = coinchange(a, v, n, dp);
+		cout << res << endl;
+	}
 }
-
-
-
-
-
 

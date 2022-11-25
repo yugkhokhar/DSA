@@ -18,7 +18,7 @@ bool iscycle(int src,vector<vector<int>>&adj,vector<bool>&visited,int parent)
 
     for(auto it:adj[src])
     {
-        if(it!=parent)
+        if(it!=parent)  //A->B AND B->A
         {
             if(visited[it])
             {
@@ -57,14 +57,14 @@ for(int i=0;i<m;i++)
 
 for(int i=0;i<n;i++)
 {
-    if(!visited[i] and iscycle(i,adjli,visited,-1))
+    if( !visited[i] and iscycle(i,adjli,visited,-1))
     {
         cycle=true;
     }
 }
 if(cycle)
 {
-    cout<<"CYCLE IS NOT PRESENT";
+    cout<<"CYCLE IS PRESENT";
 }
 else{
     cout<<"CYCLE NOT PRESENT";

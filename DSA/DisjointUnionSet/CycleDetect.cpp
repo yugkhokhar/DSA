@@ -39,7 +39,6 @@ if(a!=b)
     size[a]+=size[b];
 }
   
-
 }
 
 int main()
