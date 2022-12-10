@@ -47,18 +47,23 @@ return max(take,excludes);
 
 }
 
+
 int LISmemo(vector<int>&nums,int curr,int prev,vector<vector<int>>&dp){
     if(curr==nums.size()) return 0;
-    if(dp[curr][prev]!=-1) return dp[curr][prev];
+    if(dp[curr][prev+1]!=-1) return dp[curr][prev+1];
+    int take=0;
 
-int includes=1+LISmemo(nums,curr+1,curr,dp);
+if(prev==-1|| nums[prev]<nums[curr]){
+    take=1+LISmemo(nums,curr+1,curr,dp);
+}
+
 int excludes=0+LISmemo(nums,curr+1,prev,dp);
 
-return dp[curr][prev]=max(includes,excludes);
+return dp[curr][prev+1]=max(take,excludes);
 
 }
 
-int SolveTab(int n,int a[]){
+int SolveTab(int n,vector<int>&a){
 
 vector<int>currRow(n+1,0);
 vector<int>nextRow(n+1,0);
@@ -77,11 +82,7 @@ int nottake=0+nextRow[prev+1];
 
 currRow[prev+1]=max(take,nottake);
 }
-nextRow=currRow
-
-}
-
-return nextRow[0];
+nextRow=currRow;
 
 }
 

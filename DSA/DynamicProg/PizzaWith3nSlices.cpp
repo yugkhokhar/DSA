@@ -12,18 +12,14 @@ return  dp[start][sliceToEat]=max(Eat,NotEat);
 
 }
 
-
-
-
-
 int maxSizeSlices(vector<int>& slices) {
 int k=slices.size();
 vector<vector<int>>dp1(k,vector<int>(k,-1));
 vector<vector<int>>dp2(k,vector<int>(k,-1));
 
 
-        int House1=PizzaWithMem(0,k-2,slices,k/3,dp1);
-        int House1Not=PizzaWithMem(1,k-1,slices,k/3,dp2);
+    int House1=PizzaWithMem(0,k-2,slices,k/3,dp1);
+    int House1Not=PizzaWithMem(1,k-1,slices,k/3,dp2);
 
 
     return max(House1,House1Not);
