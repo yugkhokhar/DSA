@@ -41,7 +41,7 @@ int main()
     cin>>n>>m;
   vii adj(n+1,vi (n+1,0));
 
-  rep(i,0,n)
+  rep(i,1,m+1)
   {
     int x,y;
     cin>>x>>y;
@@ -65,8 +65,8 @@ rep(i,1,n+1)
     int x,y;
     cin>>x>>y;
 
-    adj[x].push_back(y);
-    adj[y].push_back(x);
+    adjli[x].push_back(y);
+    adjli[y].push_back(x);
 
 }
 
@@ -74,7 +74,7 @@ rep(i,1,n+1)
 {
     vector<int>::iterator it;
     cout<<i<<"->";
-    for(it=adj[i].begin();it!=adj[i].end();it++)
+    for(it=adjli[i].begin();it!=adjli[i].end();it++)
     {
         cout<<*it;
     }

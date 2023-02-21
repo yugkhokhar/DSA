@@ -49,13 +49,15 @@ else return 0;
 int MaximumSquareMemoisation(vector<vector<int>>&matrix,int idx1,int idx2,int&maxi,vector<vector<int>>&dp){
 
 if(idx1>=matrix.size() || idx2>=matrix[0].size()) return 0;
+
 if(dp[idx1][idx2]!=-1) return dp[idx1][idx2];
+
 int right=MaximumSquareMemoisation(matrix,idx1,idx2+1,maxi,dp);
 int bottom=MaximumSquareMemoisation(matrix,idx1+1,idx2,maxi,dp);
 int diagonal=MaximumSquareMemoisation(matrix,idx1+1,idx2+1,maxi,dp);
 
-if(dp[idx1][idx2]==1) {
-dp[idx1][idx2]=min({right,bottom,diagonal});
+if(matrix[idx1][idx2]=='1') {
+int dp[idx1][idx2]=min({right,bottom,diagonal});
 maxi=max(maxi,dp[idx1][idx2]);
 return dp[idx1][idx2];
 }

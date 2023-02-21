@@ -33,52 +33,6 @@
 using namespace std;
 signed main()
 {
-
-int n,m;
-cin>>n>>m;
-vector<int>adjli[n+1];
-
-for(int i=0;i<m;i++)
-{
-	int x,y;
-	cin>>x>>y;
-	adjli[x].push_back(y);
-	adjli[y].push_back(x);
-}
-
-queue<int>q;
-int visited[n+1]={0};
-vector<int>bfs;
-q.push_back(1);
-visited[1]=1;
-
-while(!q.empty()){
-int node=q.front();
-q.pop();
-bfs.push_back(node);
-
-for(auto it:adjli[node])
-{
-
-if(!visited[it]){
-	visited[it]=1;
-	q.push_back(it);
-}
-
-}
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
+int n;cin>>n;
  return 0;
 }

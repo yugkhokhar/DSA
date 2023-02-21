@@ -7,7 +7,7 @@ vector<int>prefix(string s){
 int n=s.size();
 vector<int>noofmatch(n,0);
 
-//TC O(N)
+    //TC O(N)
 for (int i =1; i < n; i++)
 {
     int j=noofmatch[i-1];
