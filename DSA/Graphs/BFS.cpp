@@ -47,10 +47,13 @@ for(int i=0;i<m;i++)
 }
 
 queue<int>q;
-int visited[n+1]={0};
+vector<int>visited(n+1,0);
 vector<int>bfs;
 q.push_back(1);
 visited[1]=1;
+
+
+//O( V+2E )	 time complexity and O(n) space complexity for adjacency list and visited array and queue and bfs vector 
 
 while(!q.empty()){
 int node=q.front();
@@ -66,11 +69,6 @@ if(!visited[it]){
 }
 
 }
-
-
-
-
-
 
 
 }

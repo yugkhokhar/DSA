@@ -7,7 +7,8 @@
 using namespace std;
 
 
-
+//BFS 
+//O(v+e) // directed acyclic graph
 int main(){
     const int N=1e+5;
     int n,m;cin>>n>>m;
@@ -21,7 +22,7 @@ cin>>x>>y;
     in_deg[y]++;
 }
 
-queue<int>q;
+z<int>q;
 for (int i = 0; i < n; i++)
 {
     if(in_deg[i]==0){
@@ -41,6 +42,64 @@ while(!q.empty())
         q.push(it);
     }
     }
+}
+
+return 0;
+}
+
+
+
+// THE TOPOLOGICAL SORT IS USED TO FIND THE CYCLE IN A DIRECTED ACYCLIC GRAPH 
+// IF THERE A EXISTS A CYCLE IN A GRAPH THEN ITS TOPOLOGICAL SORT IS NOT FOUND
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+
+void dfs(int node,vector<int>visited,vector<vector<int>>adj,stack<int>&st){
+
+    visited[node]=1;
+    for(auto it:adj[node]){
+        if(!visited[it]){
+            dfs(it,visited,adj,st);
+        }
+    }
+    st.push(node);
+}
+
+//DFS
+//O(v+e)
+int main(){
+
+    int n,m;cin>>n>>m;
+    vector<vector<int>>adj[n];
+    
+for (int i = 0; i <m; i++)
+{
+    int x,y;
+    cin>>x>>y;
+    adj[x].push_back(y);
+    adj[y].push_back(x);
+}
+
+stack<int>st;
+vector<int>visited(n,0);
+for (int i = 0; i < n; i++)
+{
+    if(!visited[i]){
+        dfs(i,visited,adj,st);
+    }
+}
+
+vector<int>ans;
+
+
+while(!st.empty())
+{
+ans.push_back(st.top());
+st.pop();
 }
 
 return 0;
